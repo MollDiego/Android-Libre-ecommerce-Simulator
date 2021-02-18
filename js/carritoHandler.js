@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /*Functions*/
 function insertCartHTML() {
 	cleanCart();
-    console.log(articulosCarrito)
     if (articulosCarrito.length==0){
         const div = document.createElement('div');
         div.innerHTML = `
