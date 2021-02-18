@@ -3,39 +3,33 @@
 
 <head>
     <title>Android Libre</title>
-    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.svg" type="image/x-icon">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/tailwind.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="../styles/tailwind.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 
 <body>
     <header class="header">        
-        <img class="logo" src="img/logo.svg" alt="logo">
-        <div class="w-2/4">
-            <div class="col-start-3 col-span-9">
-                    <input class="searcher-conteiner ml-4 focus:outline-none" type="text" name="searcher"
-                        id="searcher" placeholder="Buscar Productos Android">
-            </div>
-        </div>
+        <img class="logo" src="../img/logo.svg" alt="logo">
         <nav class="mr-4">
             <ul>
                 <li>
-                    Inicio
+                    <a href="../index.html">Inicio</a>
                 </li>
                 <li>
-                    <a href="pages/cart.html"><img src="img/cart.svg" alt="carrito"></a>
+                    <img src="../img/cart.svg" alt="carrito">
                 </li>
             </ul>
         </nav>
     </header>
     <div class="grid grid-cols-12 mb-60">
-        <div class="col-start-3 col-span-6" id="products-container">
-            <h1 class="text-xl mt-10 mb-10">¡Para empezar hace tu busqueda!</h1>
-            <img height="500px" width="600px" src="img/search.svg" alt="search">
+        <div class="col-start-3 col-span-6" id="list-cart">
+            <h1 class="text-xl mt-10 mb-10">¡Tu carrito está vacío!</h1>
+            <img height="500px" width="600px" src="../img/empty_cart.svg" alt="empty_cart">
         </div>
-    </div>    
+    </div>   
     <footer class=" mt-4 pt-4 border-t-2 w-full absolute bottom-0">
         <div class="footer">
             <div>
@@ -47,7 +41,7 @@
             </div>
             <div>
                 <h2>Seguimé en mis redes</h2>
-                <p><a href="https://www.instagram.com/diego_moll/" target="_blank"><img src="img/instagram_WB.svg"
+                <p><a href="https://www.instagram.com/diego_moll/" target="_blank"><img src="../img/instagram_WB.svg"
                             alt="logo" width="30" height="30"></a>
                 </p>
             </div>
@@ -60,8 +54,7 @@
                     Moll</a></span>
         </div>
     </footer>
-    <script type="text/javascript" src="js/fetchData.js"></script>
-    <script type="text/javascript" src="js/carrito.js"></script>
+    <script type="text/javascript" src="../js/carritoHandler.js"></script>
 </body>
 
 </html>
