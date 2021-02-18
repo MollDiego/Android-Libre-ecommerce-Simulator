@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
 /*Functions*/
 function insertCartHTML() {
 	cleanCart();
+    console.log(articulosCarrito)
+    if (articulosCarrito.length==0){
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <h1 class="text-xl mt-10 mb-10">¡Tu carrito está vacío!</h1>
+            <img height="500px" width="600px" src="../img/empty_cart.svg" alt="empty_cart">
+            `
+        contentCart.appendChild(div);
+    }
 
 	articulosCarrito.forEach(producto => {
 		const { image, name, price, amount, id } = producto;
