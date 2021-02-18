@@ -1,7 +1,14 @@
 window.onload = () => {
-    document.getElementById("searcher").addEventListener('input', e =>{
-    const busqueda = e.target.value.replace(" ", "%20");
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=android%20${busqueda}`).then((response)=> {
+  /*Selectores*/
+  const search = document.querySelector('#searcher');
+  /*Listeners*/
+  search.addEventListener('input', busqueda);
+
+}
+
+function busqueda(e){
+  const busqueda = e.target.value.replace(" ", "%20");
+  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=android%20${busqueda}`).then((response)=> {
         if(response.ok) {
           response.json().then((miData)=> {
             mostrarResultado(miData);
@@ -13,27 +20,26 @@ window.onload = () => {
       .catch(function(error) {
         console.log('Hubo un problema con la petición Fetch:' + error.message);
       });
-    });
 }
 
 function mostrarResultado(result){
     const { results } = result;
-    const contenedor = document.getElementById("products-container");
+    const contenedor = document.querySelector('#products-container');
     contenedor.innerHTML = '';
     for(let i = 0; i < 10; i++){
-        const { thumbnail, price, title, shipping } = results[i];
+        const { thumbnail, price, title, shipping, id } = results[i];
         const element = document.createElement("div");
         element.classList.add("product-card");
         element.innerHTML = `
                 <img src="${thumbnail}" alt="icono">
-                <div class="product-info">
+                <div class="product-info relative">
                     <h3>${title}</h3>
-                    <p>$${price}</p>
+                    <p class="price">$${price}</p>
                     ${
                         shipping.free_shipping ? '<p class="envio">Envio gratis!</p>' : ""
                     }
-                </div>
-                <button onclick='agregarCarrito(${price}, "${title}")' class="btn-agregar">Agregar</button>
+                    <a href="#" class="btn-agregar absolute bottom-0 mb-10 text-white" data-id=${id}>Agregar al Carrito</a>
+                </div>                
         `;
 
         contenedor.appendChild(element);
