@@ -2,11 +2,12 @@
 const contentCart = document.querySelector('#list-cart');
 
 let articulosCarrito = [];
-/*Listeners*/
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {    
 	articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
 	insertCartHTML();
 });
+/*Listeners*/
+contentCart.addEventListener('click', quitarProducto);
 
 /*Functions*/
 function insertCartHTML() {
@@ -18,23 +19,37 @@ function insertCartHTML() {
             <img height="500px" width="600px" src="../img/empty_cart.svg" alt="empty_cart">
             `
         contentCart.appendChild(div);
-    }
+    }else{
+        articulosCarrito.forEach(producto => {
+            const { image, name, price, amount, id } = producto;
+            const row = document.createElement('div');
+            row.classList.add("product-card");
+            row.innerHTML = `
+                <img src="${image}" alt="icono">
+                <div class="product-info relative">
+                    <h3>${name}</h3>
+                    <p class="price">$${price}</p>
+                    <p>Cantidad: ${amount}</p>
+                    <a href="#" class="btn-delete absolute bottom-0 mb-10 text-white" data-id=${id}>Borrar producto</a>
+                </div>
+            `
+            contentCart.appendChild(row);
+        });
+        }
+}
 
-	articulosCarrito.forEach(producto => {
-		const { image, name, price, amount, id } = producto;
-		const row = document.createElement('div');
-        row.classList.add("product-card");
-		row.innerHTML = `
-            <img src="${image}" alt="icono">
-            <div class="product-info relative">
-                <h3>${name}</h3>
-                <p class="price">$${price}</p>
-                <p>Cantidad: ${amount}</p>
-                <a href="#" class="btn-quitar absolute bottom-0 mb-10 text-white" data-id=${id}>Borrar producto</a>
-            </div>
-		`
-		contentCart.appendChild(row);
-	});
+function quitarProducto(e){
+    e.preventDefault();
+    if (e.target.classList.contains('btn-delete')) {
+        const productoId = e.target.getAttribute('data-id');
+        articulosCarrito = articulosCarrito.filter(producto => producto.id != productoId);
+        insertCartHTML();
+        saveStorage();
+    }
+}
+
+function saveStorage() {
+	localStorage.setItem('carrito', JSON.stringify(articulosCarrito));
 }
 
 function cleanCart() {

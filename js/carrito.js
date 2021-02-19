@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /*Functions*/
 function agregarAlCarrito(e){
-    e.preventDefault();
-    
+    e.preventDefault();    
     if(e.target.classList.contains('btn-agregar')){
         const productSelected = e.target.parentElement;
         const imgSrc = e.target.parentElement.parentElement.querySelector('img').src;
@@ -29,9 +28,7 @@ function getData(product,src){
         id: product.querySelector('a').getAttribute('data-id'),
         amount: 1
     }
-
     const existe = articulosCarrito.some(producto => producto.id == productAdded.id);
-
     if (existe) {
 		const products = articulosCarrito.map(producto => {
 			if (producto.id === productAdded.id) {
