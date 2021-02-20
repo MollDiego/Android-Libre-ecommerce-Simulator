@@ -24,24 +24,31 @@ function busqueda(e){
 
 function mostrarResultado(result){
     const { results } = result;
+    console.log(results.length);
     const contenedor = document.querySelector('#products-container');
     contenedor.innerHTML = '';
+    if (results.length==0){
+      const emptySearch = document.createElement("h1")
+      emptySearch.classList.add("empty-search");
+      emptySearch.innerHTML='¡No se encontraron resultados para su busqueda!';
+      contenedor.appendChild(emptySearch);
+    }else{
     for(let i = 0; i < 10; i++){
         const { thumbnail, price, title, shipping, id } = results[i];
         const element = document.createElement("div");
         element.classList.add("product-card");
         element.innerHTML = `
-                <img src="${thumbnail}" alt="icono">
-                <div class="product-info relative">
+                <img class="col-start-1 col-span-2" src="${thumbnail}" alt="icono">
+                <div class="product-info relative mt-4 ml-4 mr-4">
                     <h3>${title}</h3>
                     <p class="price">$${price}</p>
                     ${
                         shipping.free_shipping ? '<p class="envio">Envio gratis!</p>' : ""
                     }
-                    <a href="#" class="btn-agregar absolute bottom-0 mb-10 text-white" data-id=${id}>Agregar al Carrito</a>
+                    <a href="#" class="btn btn-agregar absolute bottom-0 mb-6 text-white" data-id=${id}>Agregar al Carrito</a>
                 </div>                
         `;
-
         contenedor.appendChild(element);
     }
+  }
 }
