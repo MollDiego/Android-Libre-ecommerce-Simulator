@@ -26,11 +26,11 @@ function insertCartHTML() {
             row.classList.add("product-card");
             row.innerHTML = `
                 <img src="${image}" alt="icono">
-                <div class="product-info relative">
+                <div class="product-info relative mt-4 ml-4 mr-4">
                     <h3>${name}</h3>
                     <p class="price">$${price}</p>
                     <p>Cantidad: ${amount}</p>
-                    <a href="#" class="btn-delete absolute bottom-0 mb-10 text-white" data-id=${id}>Borrar producto</a>
+                    <a href="#" class=" btn btn-delete absolute bottom-0 mb-6 text-white" data-id=${id}>Borrar producto</a>
                 </div>
             `
             contentCart.appendChild(row);
