@@ -24,7 +24,6 @@ function busqueda(e){
 
 function mostrarResultado(result){
     const { results } = result;
-    console.log(results.length);
     const contenedor = document.querySelector('#products-container');
     contenedor.innerHTML = '';
     if (results.length==0){

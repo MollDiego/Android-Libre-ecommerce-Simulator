@@ -6,7 +6,6 @@ productsContainer.addEventListener('click',agregarAlCarrito);
 let articulosCarrito = [];
 document.addEventListener('DOMContentLoaded', () => {    
 	articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-	insertCartHTML();
 });
 
 /*Functions*/
