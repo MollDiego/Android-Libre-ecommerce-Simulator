@@ -40,6 +40,7 @@ function getData(product,src){
 	} else {
 		articulosCarrito.push(productAdded);
 	}
+    insertBadge(articulosCarrito);
     saveStorage();
 }
 

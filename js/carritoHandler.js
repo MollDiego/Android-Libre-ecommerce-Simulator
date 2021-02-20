@@ -4,6 +4,7 @@ const contentCart = document.querySelector('#list-cart');
 let articulosCarrito = [];
 document.addEventListener('DOMContentLoaded', () => {    
 	articulosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    insertBadge(articulosCarrito)
 	insertCartHTML();
 });
 /*Listeners*/
@@ -45,6 +46,7 @@ function quitarProducto(e){
         articulosCarrito = articulosCarrito.filter(producto => producto.id != productoId);
         insertCartHTML();
         saveStorage();
+        insertBadge(articulosCarrito)
     }
 }
 
