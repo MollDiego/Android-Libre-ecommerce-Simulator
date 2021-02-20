@@ -18,11 +18,12 @@
                         id="searcher" placeholder="Buscar Productos Android">
         </div>
         <nav class="mr-4">
-            <ul>
+            <ul class="flex flex-row items-center">
                 <li>
                     Inicio
                 </li>
-                <li>
+                <li class="flex flex-col">
+                    <span class="badge-style" id="cart-badge"></span>
                     <a href="pages/cart.html"><img src="img/cart.svg" alt="carrito"></a>
                 </li>
             </ul>
@@ -58,8 +59,7 @@
                     Moll</a></span>
         </div>
     </footer>
-    <script type="text/javascript" src="js/fetchData.js"></script>
-    <script type="text/javascript" src="js/carrito.js"></script>
-</body>
-
+    <script type="text/javascript" src="js/badge.js"></script>
+    <script type="text/javascript" src="js/carrito.js"></script> 
+    <script type="text/javascript" src="js/fetchData.js"></script>       
 </html>

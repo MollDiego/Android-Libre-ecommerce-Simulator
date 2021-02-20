@@ -58,6 +58,23 @@ li {
   margin-top: 40px;
 }
 
+.badge-style {
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 /*Conteiners*/
 
 .searcher-conteiner {

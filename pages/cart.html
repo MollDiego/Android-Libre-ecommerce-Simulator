@@ -14,11 +14,12 @@
     <header class="header">        
         <img height="34px" width="134px" class="logo" src="../img/bigLogo.svg" alt="logo">
         <nav class="mr-4">
-            <ul>
+            <ul class="flex flex-row items-center">
                 <li>
                     <a href="../index.html">Inicio</a>
                 </li>
-                <li>
+                <li class="flex flex-col">
+                    <span class="badge-style" id="cart-badge"></span>
                     <img src="../img/cart.svg" alt="carrito">
                 </li>
             </ul>
@@ -51,6 +52,7 @@
                     Moll</a></span>
         </div>
     </footer>
+    <script src="../js/badge.js"></script>
     <script type="text/javascript" src="../js/carritoHandler.js"></script>
 </body>
 

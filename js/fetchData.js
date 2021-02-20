@@ -3,7 +3,7 @@ window.onload = () => {
   const search = document.querySelector('#searcher');
   /*Listeners*/
   search.addEventListener('input', busqueda);
-
+  insertBadge(articulosCarrito)
 }
 
 function busqueda(e){
